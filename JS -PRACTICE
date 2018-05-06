@@ -1,0 +1,151 @@
+function addTwoDigits(n) {
+/*prompt says
+given 2 digit number
+find sum of its digits
+what I see:
+29, 41
+2+9=11, 4+1=5
+strategy: add the digits and return the sumtotal
+Transformation steps:
+split numbers to strings, convert them to numbers and add them
+pseudocode:
+convert to string
+split it
+iterate
+convert to number again
+add numbers(use reduce fnc)
+return sum
+*/
+var numToStr = n.toString();
+var arrayNum = numToStr.split('');
+//console.log(arrayNum);
+var sum = 0;
+var numArray = [];
+for (var i=0; i<arrayNum.length; i++) {
+   numArray.push(parseInt(arrayNum[i]));
+   console.log(numArray);
+   const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  sum = numArray.reduce(reducer);
+ 
+}
+return sum;
+}
+addTwoDigits(29);
+
+
+2)function largestNumber(n) {
+/*prompt says
+given a number
+find largest number that has n digits
+what I see:
+for 2 =99 for 1 =9, for 3=999
+
+strategy: find the highest number in that number of digits
+Transformation steps:
+since 9 is the highest number in units, tens etc use 9
+
+
+pseudocode:
+put a variable in num as 9,
+repeat 9 n number of times
+*/
+var num = '';
+
+for (var i=1; i<=n; i++) {
+  num +='9'
+}
+return parseInt(num);
+}
+largestNumber(4);
+
+3)function candies(n, m) {
+/*prompt says
+given a number n children
+given m number of candies
+each child should get same amount of candies
+what I see:
+for 3 shildren and 10 candies=> each child should get 3;
+for 5 children and 12 candies => each child should get 5;
+
+strategy: find the equal number of candies each child should get
+Transformation steps:
+divide candies by number of kids
+if remainder is not a integer bring the number down to integer
+
+
+pseudocode:
+divide m%n
+bring remainder to lower number
+return remainder
+
+*/
+if (n===m) {
+ return n;
+} else {
+var num = Math.floor(m/n);
+
+}
+return num*n;
+}
+candies(3, 10);
+
+4) SEAT IN THEATER
+function seatsInTheater(nCols, nRows, col, row) {
+    //prompt says given 4 arguments
+    //return number of people behind in your row and column
+    //What i see - 4 integers 
+    //return o/p a number
+    //strategy : to find no of ppl behind me
+    // transformation steps:
+    // find no of columns to left or find number of columns that's left 
+    // add one to include end cases in column
+    // calculate row by deducting total rows by current row
+    // find prod of row and column
+
+    var colBehind = nCols - col + 1;
+    var rowBehind = nRows - row;
+    var numberOfPeople = colBehind * rowBehind;
+    return numberOfPeople;
+}
+
+5)function maxMultiple(divisor, bound) {
+// prompt says 2 numbers are given
+// divisor should find the highest multiple less than or equal to bound
+// N is greater than 0
+// What I see are 2 numbers and all conditions
+// so for 3 and 10 it should be 9
+// transformation steps
+// create a empty array []
+// for each iteration put num that's %by 3 in array 
+// take the last element in array
+
+  
+    var divisibleBy3Array = [];
+    for (var i=divisor; i<=bound; i++) {
+        if (i % divisor === 0){
+           divisibleBy3Array.push(i);
+        }
+        
+    }
+    
+    return divisibleBy3Array[divisibleBy3Array.length-1];
+}
+
+6) numbers in a circle
+function circleOfNumbers(n, firstNumber) {
+//prompt says 2 integers are given
+//find one that is radically opposite
+//what I see is 2 integers , starts with 0 ends wiht n-1
+// strategy to find a number that is radically opposite. 
+// transformation steps:
+// create a variable that holds the o/p
+// since the start number is 0 and goes upto n, take first half of circle
+// add the first number
+// divide by n and take the remainder
+  var halfCircle = n/2;
+  var radicalNumber = (firstNumber+halfCircle) % n;
+ 
+return radicalNumber;
+}
+
+
