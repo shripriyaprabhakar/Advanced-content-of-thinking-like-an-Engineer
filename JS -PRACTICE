@@ -148,4 +148,53 @@ function circleOfNumbers(n, firstNumber) {
 return radicalNumber;
 }
 
+7) function lateRide(n) {
+//i/p = number
+//o/p = number
+//strategy : to find time. to sum digits 
+// transformation steps
+// divide n/60 to convert it to hours
+// separate the decimal point and multiply by 60
+// convert it to digits
+// split to string
+// join and convert to number
+// add 
+var hourToBegin = (n/60).toFixed(2);
+  var hourToString = hourToBegin.toString();
+  console.log(hourToString);
+   console.log(typeof hourToString);
+  var hourSplit = hourToString.split('.');
+  console.log(hourSplit);
+  var minutes = Math.floor((parseFloat(hourSplit[1]))*60/100);
+  console.log(minutes);
+  var minutesToString =  minutes.toString();
+  console.log(minutesToString);
+  var hourArray = [];
+  var minArray = [];
+  var hourToArray = hourSplit[0].split('');
+  console.log(hourToArray);
+  var minToArray = minutesToString.split('');
+   console.log(minToArray);
+   var toNumber = hourToArray.forEach(function(element){
+     element = parseFloat(element);
+     hourArray.push(element);
+   }); 
+      console.log(toNumber);
+   var sum1 = hourArray.reduce(function(acc,val){
+     return acc+val
+   });
+   console.log(sum1);
+   var toNumber = minToArray.forEach(function(element){
+     element = parseFloat(element);
+     minArray.push(element);
+   }); 
+   var sum2 = minArray.reduce(function(acc,val){
+     return acc+val
+   });
+   console.log(sum2);
+   return sum1+sum2;
+}
+
+
+
 
